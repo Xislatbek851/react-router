@@ -1,6 +1,5 @@
-import React from 'react'
 import store from '../assets/image/store.png'
-import location from '../assets/image/location.png'
+
 
 // Kartochka ma'lumotlari
 const contactItems = [
