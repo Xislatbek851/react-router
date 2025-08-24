@@ -12,44 +12,36 @@ import Dessert from './pages/Dessert'
 import Antipasti from './pages/Antipasti'
 import Promotions from './pages/Promotions'
 import Contact from './pages/Contact'
+import Cart from './pages/Cart'
+import Favorites from './pages/Favorites'
+import { LanguageProvider } from './contexts/LanguageContext'
+import { CartProvider } from './contexts/CartContext'
 
 
 const App = () => {
   return (
-    <>
-      <Header />
-
-      <main>
-
-        <Routes>
-
-          <Route path='/' element={<Home />} />
-
-          <Route path='/pizza' element={<Pizza />} />
-
-          <Route path='/pasta' element={<Pasta />} />
-
-          <Route path='/soups' element={<Soups />} />
-
-          <Route path='/salads' element={<Salads />} />
-
-          <Route path='/drinks' element={<Drinks />} />
-
-          <Route path='/dessert' element={<Dessert />} />
-
-          <Route path='/antipasti' element={<Antipasti />} />
-
-          <Route path='/promotions' element={<Promotions />} />
-
-          <Route path='/contact' element={<Contact />} />
-
-        </Routes>
-
-      </main>
-
-      <Footer />
-
-    </>
+    <LanguageProvider>
+      <CartProvider>
+        <Header />
+        <main>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/pizza' element={<Pizza />} />
+            <Route path='/pasta' element={<Pasta />} />
+            <Route path='/soups' element={<Soups />} />
+            <Route path='/salads' element={<Salads />} />
+            <Route path='/drinks' element={<Drinks />} />
+            <Route path='/dessert' element={<Dessert />} />
+            <Route path='/antipasti' element={<Antipasti />} />
+            <Route path='/promotions' element={<Promotions />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/favorites' element={<Favorites />} />
+          </Routes>
+        </main>
+        <Footer />
+      </CartProvider>
+    </LanguageProvider>
   )
 }
 

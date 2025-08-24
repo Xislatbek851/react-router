@@ -1,58 +1,96 @@
 import React from 'react'
-import Logo from '../../assets/image/logo.svg'      
+import { Link } from 'react-router-dom'
+import Logo from '../../assets/image/logo.svg'
 import Icon from '../../assets/image/icon.svg'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 const Footer = () => {
+  const { t } = useLanguage()
+
   return (
-  <footer className='mt-28'>
-      <div className='container '>
-      <div className='flex items-center font-bold text-[21px] justify-between w-[1110px] '>
-         <img src={Logo} alt="" />  
-         <h1 className='relative right-6 '>Остались вопросы? А мы всегда на связи:</h1>
+    <footer className="bg-gray-900 text-white mt-20">
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-7xl mx-auto">
+          {/* Top Section */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {/* Logo and Description */}
+            <div className="lg:col-span-2">
+              <img src={Logo} alt="Logo" className="h-12 mb-4" />
+              <p className="text-gray-300 text-sm leading-relaxed max-w-md">
+                Eng mazali va sifatli taomlarimiz bilan tanishing. 
+                Biz sizning ta'mingizni qondirish uchun har kuni ishlaymiz.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-amber-400">Tezkor havolalar</h3>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/pizza" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">Pizza</Link></li>
+                <li><Link to="/pasta" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">Pasta</Link></li>
+                <li><Link to="/soups" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">Sho'rvalar</Link></li>
+                <li><Link to="/salads" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">Salatlar</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-amber-400">Aloqa</h3>
+              <div className="space-y-2 text-sm text-gray-300">
+                <p>📞 8 499 391-84-49</p>
+                <p>📍 Москва ул. Проспект Вернадского 86В</p>
+                <p>🕒 24/7 ochiq</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Middle Section */}
+          <div className="border-t border-gray-700 pt-8 mb-8">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold mb-4">
+                {t('orderCall')}
+              </h3>
+              <p className="text-gray-300 text-sm">
+                Savollaringiz bormi? Biz sizga yordam berishdan xursand bo'lamiz
+              </p>
+            </div>
+
+            {/* Social Media Buttons */}
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              {[1, 2, 3, 4, 5, 6].map((index) => (
+                <button
+                  key={index}
+                  className="w-12 h-12 border border-gray-600 rounded-xl flex items-center justify-center hover:border-amber-400 hover:bg-amber-400/10 transition-all duration-300"
+                >
+                  <img src={Icon} alt={`Social ${index}`} className="w-6 h-6" />
+                </button>
+              ))}
+              <button className="px-6 py-3 border border-amber-400 rounded-xl text-amber-400 hover:bg-amber-400 hover:text-white transition-all duration-300 font-medium">
+                Bizga yozing
+              </button>
+            </div>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="border-t border-gray-700 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-center md:text-left">
+                <p className="text-gray-400 text-sm">
+                  YaBao © 2024. Barcha huquqlar himoyalangan
+                </p>
+              </div>
+              
+              <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+                <Link to="#" className="hover:text-amber-400 transition-colors duration-200">YouTube</Link>
+                <Link to="#" className="hover:text-amber-400 transition-colors duration-200">Facebook</Link>
+                <Link to="#" className="hover:text-amber-400 transition-colors duration-200">Instagram</Link>
+                <Link to="#" className="hover:text-amber-400 transition-colors duration-200">ВКонтакте</Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-       <div className='flex space-x-10 font-bold text-[16px] leading-7 mt-10   '>
-        <p>Калорийность и состав</p>
-        <p className=''>Правовая информация</p>
-        <div className=' relative left-47 '>
-       <div className='flex gap-4'>
-           <button className=' border px-8 py-2 rounded-[13px] '><img src={Icon} alt="" /></button>
-        <button className=' border px-10 py-2 rounded-[13px] '><img src={Icon} alt="" /></button>
-        <button className=' border px-10 py-2 rounded-[13px] '><img src={Icon} alt="" /></button>
-        <button className=' border px-10 py-2 rounded-[13px] '><img src={Icon} alt="" /></button> 
-       </div>
-        <div className=' mt-4 flex gap-4'>
-        <button className=' border px-10 py-2 rounded-[13px] '><img src={Icon} alt="" /></button> 
-        <button className=' border px-10 py-2 rounded-[13px] '><img src={Icon} alt="" /></button> 
-        <button className=' border px-10 py-3 rounded-[13px] text-[19px]  '>Написать нам</button> 
-        </div>
-        </div>
-        
-       </div>
-       <p className='flex space-x-10 font-bold text-[16px] mt-[-30px]'>Правовая информация</p>
-
-       <div className='flex gap-27 font-mono text-gray-600 mt-10'>
-        <p>YouTube</p>
-        <p>Facebook</p>
-        <p>Москва ул. Проспект </p>
-       </div> 
-       <div className='mt-[-20px]'>
-       <button><p className='w-[248px] h-[37px] font-bold text-3xl text-yellow-300 ml-[700px] relative top-10 right-18  '>8 499 391-84-49</p></button>
-       </div>
-
-       <div  className='flex gap-28 font-mono text-gray-600 mt-'>
-        <p>Instagram</p>
-        <p className='ml-[-20px]'>ВКонтакте</p>
-        <p className='ml-[-10px]'>Вернадского 86В </p>   
-       </div>
-       <div className='mt-10'>
-       <button><p className='border border-none bg-gray-300 py-3 px-11 rounded-3xl ml-[641px]'>Заказать звонок</p></button>
-       </div>
-       <p className='mt-[-30px]'>YaBao Все праав защищены © 2021</p>                              
-    </div>
-
-  </footer>
-    
+    </footer>
   )
 }
 
